@@ -1,9 +1,24 @@
 html {
-
     background: #f0f0f0;
+    font-family: 'Cabin', sans-serif;
   }
   body {
     min-height: 100%;
     background-repeat: no-repeat;
     background: #aaa;
+  }
+
+  input{
+    border: none;
+    border-bottom: 2px solid #ddd; 
+    padding: 5px;
+    outline: none;
+    transition: border-bottom-color 0.3s ease-in-out;
+    background-color: transparent;
+    color: #333;
+    font-size: 28px;
+  }
+
+  input:focus{
+      border-bottom-color: #be1010; 
   }

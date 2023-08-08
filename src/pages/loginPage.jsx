@@ -1,18 +1,28 @@
 import SampleImage from '../assets/Sample.jpg';
+import LogoContainer from '../components/loginPage/logoContainer';
+import LoginForm from '../components/loginPage/loginForm';
+import RegisterForm from '../components/loginPage/registerForm';
 import { styled } from "styled-components";
+import { useState } from 'react';
+
 
 export default function LoginPage(){
+    const [login, setLogin] = useState(true);
+    
+    const changeForm = function(){
+        if(login) setLogin(false);
+        else setLogin(true);
+    }
+
     return (
-    <   BackContainer>
+    <BackContainer>
             <WallpaperContainer>
                 <WhiteContainer>
-                    PokeModels
-                    <form>
-                        <input type="email" name="" id="" />
-                        <input type="password" name="" id="" />
-                        <button>Login</button>
-                    </form>
-                    cadastrar!
+                    <LogoContainer></LogoContainer>
+                    {login
+                        ?<LoginForm changeForm={changeForm}></LoginForm>
+                        :<RegisterForm changeForm={changeForm}></RegisterForm>
+                    }
                 </WhiteContainer>
             </WallpaperContainer>
 
@@ -45,7 +55,6 @@ const RedContainer = styled.div`
     height: 100vh;
     width: 25vw;
 `
-
 const WhiteContainer = styled.div`
     background-color: #FFF;
     width: 35vw;
@@ -59,5 +68,5 @@ const WhiteContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 `
