@@ -16,17 +16,17 @@ export default function LogoContainer(){
 }
 
 const SuperContainer = styled.div`
-    //background-color: green;
     color: #4B4C4E;
+    height: 14vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     span{
-        font-size: 20px;
+        font-size: 2.5vh;
         visibility: hidden;
         opacity: 0;
-        transition: opacity 0.3s ease-in-out;
+        transition: opacity 0.5s ease-in-out;
     }
     &:hover{
         span{
@@ -38,14 +38,14 @@ const SuperContainer = styled.div`
 
 const LogoBox = styled.div`
     font-family: 'Dancing Script', cursive;
-    font-size: 80px;
+    font-size: 9vh;
     font-weight: 700;
     display: flex;
     align-items: center;
     position: relative;
     img{
-        height: 63px;
-        transition: transform 0.3s ease-in-out;
+        height: 9vh;
+        transition: transform 0.5s ease-in-out;
     }
     &:hover{
         cursor: pointer;

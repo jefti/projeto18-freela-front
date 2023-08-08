@@ -19,16 +19,14 @@ export default function LoginPage(){
             <WallpaperContainer>
                 <WhiteContainer>
                     <LogoContainer></LogoContainer>
-                    {login
-                        ?<LoginForm changeForm={changeForm}></LoginForm>
-                        :<RegisterForm changeForm={changeForm}></RegisterForm>
-                    }
+                        {login
+                            ?<LoginForm changeForm={changeForm}></LoginForm>
+                            :<RegisterForm changeForm={changeForm}></RegisterForm>
+                        }
                 </WhiteContainer>
             </WallpaperContainer>
 
-            <RedContainer>
-
-            </RedContainer>
+            <RedContainer></RedContainer>
     </  BackContainer>)
 };
 
@@ -49,11 +47,22 @@ const WallpaperContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: 1024px) {
+        width: 100vw;
+        background-position: center center;
+    }
+    @media (max-width: 768px) {
+
+    }
 `
 const RedContainer = styled.div`
     background-color: 	#be1010;
+    display: inline;
     height: 100vh;
-    width: 25vw;
+    width: 25vw; 
+    @media (max-width: 1024px) {
+        display: none;
+    }
 `
 const WhiteContainer = styled.div`
     background-color: #FFF;
@@ -69,4 +78,14 @@ const WhiteContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+
+    @media (max-width: 1024px) {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        right: auto;
+        width: 80vw;
+    }
 `
+

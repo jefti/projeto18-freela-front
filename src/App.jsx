@@ -3,7 +3,6 @@ import LoginPage from './pages/loginPage';
 import './styles/style.css';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>

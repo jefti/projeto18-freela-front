@@ -10,13 +10,13 @@ html {
 
   input{
     border: none;
-    border-bottom: 2px solid #ddd; 
-    padding: 5px;
+    border-bottom: 0.4vh solid #ddd; 
+    padding: 0.1vh;
     outline: none;
     transition: border-bottom-color 0.3s ease-in-out;
     background-color: transparent;
     color: #333;
-    font-size: 28px;
+    font-size: 2.5vh;
   }
 
   input:focus{
