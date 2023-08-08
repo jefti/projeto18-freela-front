@@ -1,10 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import pkbll from "../../assets/pkbll.png"
 import { styled } from "styled-components";
 
 export default function LogoContainer(){
+    const nav = useNavigate();
+    function handleNavegation(){
+        nav('/home');
+    }
 
     return(
-    <SuperContainer>
+    <SuperContainer onClick={handleNavegation}>
         <LogoBox>
             <img src={pkbll} alt="pokeball" />     
             PokeModels

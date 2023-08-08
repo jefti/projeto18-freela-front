@@ -1,14 +1,20 @@
-import { useState } from 'react';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/loginPage';
 import './styles/style.css';
+import HomePage from './pages/homePage';
 
-function App() {
+export default function App() {
 
   return (
-    <>
-      <LoginPage/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />}/>
+        <Route path='/home' element={<HomePage/>}/>
+      </Routes>
+    </BrowserRouter>
+
   )
 }
 
-export default App
+
