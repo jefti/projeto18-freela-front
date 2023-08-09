@@ -1,20 +1,22 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SuperForm, LinkContainer, TextError } from '../../styles/formStyle';
 import apiAuth from '../../services/apiAuth';
+import { UserContext } from '../../contexts/userContext';
 
 export default function LoginForm({changeForm}){
-
+    const {setUser} = useContext(UserContext);
     const [form, setForm] = useState({email:'',senha:''});
     const [erros, setErros] = useState('');
     const nav = useNavigate();
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log(erros);
         apiAuth.login(form)
             .then(res=>{
                 console.log(res.data);
+                setUser(res.data);
+                //nav("/home");
             })
             .catch(err=>{
                 if(Array.isArray(err.response.data)) setErros(err.response.data[0]);
@@ -22,7 +24,7 @@ export default function LoginForm({changeForm}){
                 console.log(err.response.data);   
             });
 
-        //nav("/home");
+        
     }
     
     function handleForm(e){
