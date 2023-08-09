@@ -52,5 +52,11 @@ span{
         font-weight: bold;
         cursor: pointer;
     }
-}
+}    
+`
+export const TextError = styled.span`
+    font-size: 2.2vh;
+    font-weight: 400;
+    color: #8c8c8c;
+    font-style: italic;
 `

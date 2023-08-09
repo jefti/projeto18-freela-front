@@ -1,9 +1,14 @@
 import { SuperForm, LinkContainer } from "../../styles/formStyle"
 
 export default function RegisterForm({changeForm}){
+    function handleRegister(e){
+        e.preventDefault();
+        changeForm();
+    }
+    
     return (
     <SuperForm>
-        <form>
+        <form onSubmit={handleRegister}>
             <input type="text" name="name" id="name" placeholder='Nome'/>
             <input type="email" name="email" id="email" placeholder='Email'/>
             <input type="text" name="name" id="name" placeholder='Link da foto de perfil'/>

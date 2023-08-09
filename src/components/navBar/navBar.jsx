@@ -6,29 +6,30 @@ export default function NavBar(){
     <SuperContainer>
         <LogoContainer>
            <span>PokeModels</span> 
+           
             <MenuOptions>
                 <li>
                     <ion-icon name="home"></ion-icon>
-                    Home
+                    <p>Home</p>
                 </li>
                 <li>
                     <ion-icon name="search"></ion-icon>
-                    Procurar
+                    <p>Pesquisar</p>
                 </li>
                 <li>
                     <ion-icon name="logo-octocat"></ion-icon>
-                    Meus pokemons
+                    <p>Meus Pokemons</p>
                 </li>
-                <li>
+                <li className="Cadastrar">
                     <ion-icon name="create"></ion-icon>
-                    Cadastrar pokemons
+                    <p>Cadastrar Pokemons</p>
                 </li>
             </MenuOptions>
         </LogoContainer>
-        
+
         <LogoutContainer>
             <ion-icon name="log-in"></ion-icon>
-            Fazer login
+            <p>Fazer login</p>
         </LogoutContainer>
 
     </SuperContainer>
@@ -42,24 +43,75 @@ const SuperContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box;
     box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
     position: relative;
-    ion-icon{
-            margin-right: 6px;
+
+    img{
+        display: none;
     }
+    ion-icon{
+        margin-right: 6px;
+    }
+
+    @media (max-width: 1024px) {
+        background: none;
+        background-color:#dcdcdc;
+
+        flex-direction: row;
+        
+        width: 100vw;
+        height: 10vh;
+
+        box-shadow: none;
+        border-bottom: solid 1px darkgray;
+
+        align-items: center;
+        justify-content: center;
+
+        ion-icon{
+            margin-right: 0;
+            font-size: 4vw;
+        }
+        .Cadastrar{
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        ion-icon{
+            font-size: 6vw;
+        }
+        img{
+            display: inline;
+            width: 80px;
+        }
+    }
+
 `
 
 const LogoContainer = styled.div`
-    margin-top: 40px;
     width: 20vw;
-    min-height: 50px;
-    color: black;
+    height: 80vh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    Span{
+    color: black;
+    box-sizing: border-box;
+
+    @media (max-width: 1024px) {
+        flex-direction: row;
+        
+        width: 80vw;
+        height: 10vh;
+    }
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
+    span{
+        margin-top: 3vh;
         font-family: 'Dancing Script', cursive;
         font-weight: 700;
         font-size: 3.5VW;
@@ -67,34 +119,83 @@ const LogoContainer = styled.div`
             cursor: pointer;
             color: #666;
         }
+        @media (max-width: 1024px) {
+            font-size: 4.2vw;
+            margin-top: 0;
+            margin-left: 2vw;
+            width: 20vw;
+        }
+        @media (max-width: 768px) {
+            font-size: 10vw;
+
+        }
     }
 `
 
 const MenuOptions = styled.ul`
-    margin-top: 10vh;
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-size: 1.7vw;
+    @media (max-width: 1024px) {
+        margin: 0;
+        flex-direction: row;
+        width: 60vw;
+        justify-content: space-evenly;
+    }
+    @media (max-width: 768px) {
+        display: none;
+    }
+
+
     li{
         border-bottom:solid 1px darkgray;
-        padding: 2px;        
+        padding-bottom: 1px;
+        display: flex;
+        flex-direction: row;
         &:hover{
             cursor: pointer;
             color: #666;
+        }
+        @media (max-width: 1024px) {
+            display: flex;
+            flex-direction: column;
+            border-bottom: none;
+            align-items: center;
+            font-size: 2vw;
+        }
+        @media (max-width: 768px) {
+            p{
+                display: none;
+            }
         }
     }
 `
 
 const LogoutContainer = styled.div`
-    font-size: 1.7vw;
-    position: absolute;
+    height: 20vh;
+    padding-top: 15vh;
+    box-sizing: border-box;
+    font-size: 2vw;
     display: flex;
-    bottom: 15px;
-    left: 15px;
+    justify-content: center;
     &:hover{
         cursor: pointer;
-        //color  :  #be1010;
         color: green;
+    }
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        padding-top: 0;
+        width: 20vw;
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+    @media (max-width: 768px) {
+        p{
+        display: none;
+      }  
     }
 `
