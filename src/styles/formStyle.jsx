@@ -86,3 +86,16 @@ export const TextError = styled.span`
     color: #8c8c8c;
     font-style: italic;
 `
+
+export const DefaultPageContainer = styled.div`
+    width: 100vw;
+    margin: 2vh 21vw 0px 21vw;
+    
+    @media (max-width: 1024px) {
+        margin: 12vh 21vw 5vh 2vw;
+    }
+
+    @media (max-width: 768px){
+        margin: 12vh 2vw 12vh 2vw;
+    }
+`

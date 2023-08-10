@@ -1,35 +1,29 @@
-import { styled } from "styled-components";
+import { DefaultPageContainer } from "../styles/formStyle";
 import ScreenWithBars from "../components/screenWithBars/ScreenWithBars";
 import PostCard from "../components/homePage/postCard";
+import { styled } from "styled-components";
 
 export default function HomePage(){
     return (
     <ScreenWithBars>
-        <SuperContainer>
+        <DefaultPageContainer>
+            <ContentBox>
+                <PostCard></PostCard>
+                <PostCard></PostCard>
+                <PostCard></PostCard>
+                <PostCard></PostCard>
+                <PostCard></PostCard>
+                <PostCard></PostCard>
+                <PostCard></PostCard>
+                <PostCard></PostCard>
+            </ContentBox>
 
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-        </SuperContainer>
+        </DefaultPageContainer>
     </ScreenWithBars>
     );
 }
-
-
-const SuperContainer = styled.div`
-    width: 100vw;
-    margin: 2vh 21vw 0px 21vw;
-
-    @media (max-width: 1024px) {
-        margin: 12vh 21vw 5vh 2vw;
-    }
-
-    @media (max-width: 768px){
-        margin: 12vh 2vw 12vh 2vw;
-    }
+const ContentBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `
