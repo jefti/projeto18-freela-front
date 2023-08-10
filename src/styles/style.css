@@ -1,6 +1,7 @@
 html {
     background: #f0f0f0;
     font-family: 'Cabin', sans-serif;
+    box-sizing: border-box;
   }
   body {
     min-height: 100%;

@@ -13,14 +13,21 @@ export default function NavBar(){
 
 const SuperContainer = styled.div`
     background: linear-gradient(to bottom, #dcdcdc, #c0c0c0);
-    border-right: solid 1px lightgray;
     width: 20vw;
+    height: 100vh;
+
+    border-right: solid 1px lightgray;
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
+
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-    position: relative;
+    
+    position: fixed;
+    z-index: 100;
+    left: 0px;
 
     img{
         display: none;
@@ -40,9 +47,9 @@ const SuperContainer = styled.div`
 
         box-shadow: none;
         border-bottom: solid 1px darkgray;
-
         align-items: center;
         justify-content: center;
+
 
         ion-icon{
             margin-right: 0;

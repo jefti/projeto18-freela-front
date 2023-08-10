@@ -21,8 +21,8 @@ export default function FooterNav(){
 const FooterBar = styled.div`
     background-color:#dcdcdc;       
     display: none;
-    position: absolute;
-    z-index: 2;
+    position: fixed;
+    z-index: 100;
     bottom: 0px;
     width:100vw;
     height: 10vh;

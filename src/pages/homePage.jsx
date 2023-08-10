@@ -1,24 +1,35 @@
 import { styled } from "styled-components";
 import ScreenWithBars from "../components/screenWithBars/ScreenWithBars";
+import PostCard from "../components/homePage/postCard";
 
 export default function HomePage(){
     return (
     <ScreenWithBars>
-        <SuperContainer></SuperContainer>
+        <SuperContainer>
+
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+        </SuperContainer>
     </ScreenWithBars>
     );
 }
 
 
 const SuperContainer = styled.div`
-    width: 60vw;
+    width: 100vw;
+    margin: 2vh 21vw 0px 21vw;
+
     @media (max-width: 1024px) {
-        width: 80vw;
-        height: 90vh;
+        margin: 12vh 21vw 5vh 2vw;
     }
 
     @media (max-width: 768px){
-        width: 100vw;
-        height:85vh ;
+        margin: 12vh 2vw 12vh 2vw;
     }
 `

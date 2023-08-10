@@ -19,11 +19,14 @@ export default function ScreenWithBars({children}){
 }
 
 const PageContainer = styled.div`
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 99vw;
+    overflow: hidden;
+    box-sizing: border-box;
     background-color: #D8D8D8;
     display: flex;
     flex-direction: rows;
+    position: relative;
 
     @media (max-width: 1024px) {
         flex-direction: column;
@@ -33,10 +36,12 @@ const PageContainer = styled.div`
 const TabletContent = styled.div`
     display: flex;
     flex-direction: rows;
-    min-width: 80vw;
+    width: 80vw;
     min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
     @media (max-width: 1024px) {
-        min-width: 100vw;
+        width: 100vw;
         min-height: 80vh;
     }
 `

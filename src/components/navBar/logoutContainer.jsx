@@ -45,19 +45,18 @@ export default function LogoutContainer(){
 
 
 const LoginContainerBox = styled.div`
-    height: 20vh;
-    padding-top: 15vh;
     box-sizing: border-box;
     font-size: 2vw;
     display: flex;
     justify-content: center;
+    padding-bottom: 2vh;
     &:hover{
         cursor: pointer;
         color: green;
     }
     @media (max-width: 1024px) {
         flex-direction: column;
-        padding-top: 0;
+        padding: 0px;
         width: 20vw;
         height: 10vh;
         display: flex;
@@ -65,6 +64,7 @@ const LoginContainerBox = styled.div`
         justify-content:center;
     }
     @media (max-width: 768px) {
+        padding: 0;
         p{
         display: none;
       }  
@@ -73,12 +73,12 @@ const LoginContainerBox = styled.div`
 
 
 const LogoutContainerBox = styled.div`
-    height: 20vh;
-    padding-top: 15vh;
     box-sizing: border-box;
     font-size: 2vw;
     display: flex;
     justify-content: center;
+    padding-bottom: 2vh;
+
     &:hover{
         cursor: pointer;
         color: #be1010;

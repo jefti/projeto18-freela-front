@@ -21,15 +21,23 @@ export default function ProfileBar(){
 
 const SuperContainer = styled.div`
     background: linear-gradient(to bottom, #dcdcdc, #c0c0c0);
-    border-left: solid 1px darkgray;
     width: 20vw;
-    box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
+    height: 100vh;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.2);
+    border-left: solid 1px darkgray;
+    box-sizing: border-box;
+    
+    position: fixed;
+    right: 0px;
+    z-index: 100;
+
     @media (max-width: 1024px) {
         height: 90vh;
+        bottom: 0px;
     }
     @media (max-width: 768px) {
         display: none;
