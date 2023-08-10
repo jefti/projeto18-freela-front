@@ -16,7 +16,7 @@ html {
     transition: border-bottom-color 0.3s ease-in-out;
     background-color: transparent;
     color: #333;
-    font-size: 2.5vh;
+    font-size: 3vh;
   }
 
   input:focus{

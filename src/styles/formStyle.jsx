@@ -8,7 +8,7 @@ export const SuperForm = styled.div`
         input{
             height: 6vh;
             width: 25vw;
-            min-width: 400px;
+            min-width: 360px;
             margin: 0.4vh;
         }
         button{
@@ -19,10 +19,10 @@ export const SuperForm = styled.div`
             margin-bottom: 3vh;
             border: none;
             border-radius: 1.4vh;
-            height: 6vh;
-            width: 40vh;
+            height: 55px;
+            width: 340px;
             background-color: #e21414; 
-            font-size: 3vh;
+            font-size: 24px;
             padding: 10px;
             color: white;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -37,6 +37,32 @@ export const SuperForm = styled.div`
                 transform: translateY(5px);
             }
         }
+    }
+    
+    @media (max-width: 1024px) {
+        form{
+            input{
+                height: 6vh;
+                width: 70vw;
+                margin: 0.4vh;
+                min-width: 10px;
+            }
+        }  
+    }
+    @media (max-width: 768px) {
+        form{
+            input{
+                height: 6vh;
+                width: 70vw;
+                margin: 0.4vh;
+                min-width: 10px;
+            }
+            button{
+                font-size: 3.5vw;
+                height: 8vh;
+                width: 40vw;
+            }
+        }  
     }
 `
 

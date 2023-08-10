@@ -47,6 +47,7 @@ export default function LoginForm({changeForm}){
                     value={form.email}
                     disabled={isLoading}
                     onChange={handleForm}
+                    required 
                 />
                 <input 
                     type="password" 
@@ -55,7 +56,8 @@ export default function LoginForm({changeForm}){
                     placeholder='Senha'
                     value={form.senha}
                     disabled={isLoading}
-                    onChange={handleForm} 
+                    onChange={handleForm}
+                    required 
                 />
                 {erros.length > 0 && <TextError>{erros}*</TextError>}
                 <button 
