@@ -24,9 +24,10 @@ export default function LoginForm({changeForm}){
                 nav("/home");
             })
             .catch(err=>{
+                setIsLoading(false);
                 if(Array.isArray(err.response.data)) setErros(err.response.data[0]);
                 else setErros(err.response.data); 
-                setIsLoading(false);
+
             });
 
         
