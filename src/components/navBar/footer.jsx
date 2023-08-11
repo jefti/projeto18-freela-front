@@ -1,10 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
 export default function FooterNav(){
+    const nav = useNavigate();
+
+    function handleNavigate(page){
+        nav(page);
+    }
+
     return (
         <FooterBar>
                 <MenuOptions>
-                    <li>
+                    <li onClick={()=> handleNavigate('/home')}>
                         <ion-icon name="home"></ion-icon>
                     </li>
                     <li>
