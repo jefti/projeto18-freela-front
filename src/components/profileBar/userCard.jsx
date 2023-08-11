@@ -3,12 +3,17 @@ import { useContext } from 'react';
 
 import { UserContext } from '../../contexts/userContext';
 import profile from '../../assets/stranger.jpg';
+import { useNavigate } from "react-router-dom";
 
 export default function UserCard(){
     const {user} = useContext(UserContext);
+    const nav = useNavigate();
+    function handleNavigate(){
+        nav('/user');
+    }
 
     return (
-        <UserCardBox>
+        <UserCardBox onClick={handleNavigate}>
             <UserInfos>
                 <ImageContainer>
                     <img src={user.foto? user.foto:profile} />

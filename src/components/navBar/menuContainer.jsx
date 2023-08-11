@@ -1,11 +1,18 @@
 import { styled } from "styled-components"
+import { useNavigate } from "react-router-dom";
 
 export default function MenuContainer(){
+    const nav = useNavigate();
+    
+    function handleNavigate(page){
+        nav(page);
+    }
+    
     return (
         <LogoContainer>
-           <span>PokeModels</span> 
+           <span onClick={()=> handleNavigate('/home')}>PokeModels</span> 
             <MenuOptions>
-                <li>
+                <li onClick={()=> handleNavigate('/home')}>
                     <ion-icon name="home"></ion-icon>
                     <p>Home</p>
                 </li>
