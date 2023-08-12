@@ -1,14 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 export default function PostCard({infos}){
-    const {responsavel, nome, especie, descricao, diaria,contato,foto}=infos;
+    const nav = useNavigate();
+    
+    const {responsavel, nome, especie, descricao, diaria,contato,foto,idPokemon}=infos;
     let preco = "R$ "+(diaria/100).toFixed(2).toString().replace('.',',');
     let obj = {DDD:contato.slice(0,2),codigo:contato.slice(2,7),registro:contato.slice(7)};
 
-
-    
     
     return(
-        <PostBody>
+        <PostBody onClick={()=>nav(`/pokemon/${idPokemon}`)}>
             <div className="ContentBox">
                 <div className="responsavel">#{responsavel}</div>
                 <div className="pokemon">{nome} <span>{especie}</span></div>

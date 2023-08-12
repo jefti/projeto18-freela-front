@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
-export default function PokemonCardComponent({nome, especie,id,foto}){
+export default function PokemonCardComponent({nome,especie,id,foto}){
+    const nav = useNavigate();
 
     return (
-        <PokemonCard>
+        <PokemonCard onClick={()=> nav(`/pokemon/${id}`)}>
             <FotoPokemon foto={foto}> </FotoPokemon>
             <InfosPokemon>
                 <NamePokemon>{nome}</NamePokemon>
