@@ -1,23 +1,39 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
+import { UserContext } from "../../contexts/userContext";
 
 export default function FooterNav(){
     const nav = useNavigate();
+    const {user} = useContext(UserContext);
 
-    function handleNavigate(page){
-        nav(page);
+
+    function handleNavigate(page,auth){
+        if(auth){
+            nav(page);
+        } else{
+            if(user.token){
+                nav(page);
+            } else{
+                const shouldRedirect = window.confirm('É necessário estar logado para poder acessar essa página. Você deseja ser redirecionado para a página de login?');
+                if (shouldRedirect) {
+                  nav('/');
+                }
+            }
+        }
+
     }
 
     return (
         <FooterBar>
                 <MenuOptions>
-                    <li onClick={()=> handleNavigate('/home')}>
+                    <li onClick={()=> handleNavigate('/home',true)}>
                         <ion-icon name="home"></ion-icon>
                     </li>
-                    <li>
+                    <li onClick={()=> handleNavigate('/search',true)}>
                         <ion-icon name="search"></ion-icon>
                     </li>
-                    <li>
+                    <li onClick={()=> handleNavigate('/my',false)}>
                         <ion-icon name="logo-octocat"></ion-icon>
                     </li>
                 </MenuOptions>

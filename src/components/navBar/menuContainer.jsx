@@ -15,7 +15,10 @@ export default function MenuContainer(){
             if(user.token){
                 nav(page);
             } else{
-                alert('Necessário logar')
+                const shouldRedirect = window.confirm('É necessário estar logado para poder acessar essa página. Você deseja ser redirecionado para a página de login?');
+                if (shouldRedirect) {
+                  nav('/');
+                }
             }
         }
 
