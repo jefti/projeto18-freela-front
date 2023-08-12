@@ -9,7 +9,6 @@ export default function LogoutContainer(){
     const nav = useNavigate();
 
     function handleLogout(){
-        console.log(user.token);
         apiAuth.logout(user.token)
         .then(()=>{
             setUser({});

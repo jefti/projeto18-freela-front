@@ -21,8 +21,8 @@ export default function UserInformationBox({categoria,informacao}){
 const InfoUserBox = styled.div`
     display: flex;
     flex-direction: column;
-    height: 5vh;
-    margin: 0.5vh 1vw;
+    height: 8vh;
+    margin: 1vh 1vw;
     @media (max-width: 768px) {
         height: min(10vh,10vw);
     }
@@ -42,6 +42,7 @@ const InfoUserCategoria = styled.div`
 `
 
 const InfoUserInformation = styled.div`
+    margin-top: 0.7vh;
     font-size: 1.8vw;
     font-weight: bold;
     @media (max-width: 1024px) {

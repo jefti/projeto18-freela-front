@@ -41,6 +41,9 @@ const ImageContainer = styled.div`
     height: 15vw;
     border-radius: 5px;
     overflow: hidden;
+    img{
+        object-fit: cover;
+    }
 `
 const UserInfos = styled.div`
     display: flex;

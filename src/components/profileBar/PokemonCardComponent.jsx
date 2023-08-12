@@ -1,12 +1,13 @@
 import { styled } from "styled-components";
 
-export default function PokemonCardComponent(){
+export default function PokemonCardComponent({nome, especie,id,foto}){
+
     return (
         <PokemonCard>
-            <FotoPokemon> </FotoPokemon>
+            <FotoPokemon foto={foto}> </FotoPokemon>
             <InfosPokemon>
-                <NamePokemon>Lluviax</NamePokemon>
-                <SpeciePokemon>Milotic</SpeciePokemon>
+                <NamePokemon>{nome}</NamePokemon>
+                <SpeciePokemon>{especie}</SpeciePokemon>
             </InfosPokemon>
             <TextoAviso>Acessar</TextoAviso>
         </PokemonCard>
@@ -37,7 +38,7 @@ const FotoPokemon = styled.div`
     height: 4vw;
     margin-right: 0.5vw;
     border-radius: 0.5vw;
-    background-image:url('https://i.pinimg.com/1200x/93/b3/5b/93b35bd031f82b8beb9ab19754fd141b.jpg');
+    background-image:url(${props => props.foto});
     background-size : cover;
     background-position: center center;
 `

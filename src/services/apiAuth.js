@@ -1,13 +1,8 @@
 import axios from "axios";
+import ConfigToken from "./configToken";
 
 const BASE_URL = "http://localhost:5000";
 
-function configToken(token){
-    const config = {
-        headers: { Authorization: `Bearer ${token}` }
-    };
-    return config;
-}
 
 function login(body){
     const promise= axios.post(`${BASE_URL}/login`,body);
@@ -20,9 +15,7 @@ function cadastro(body){
 }
 
 function logout(token){
-    const config  = configToken(token);
-    console.log(config);
-    console.log(`${BASE_URL}/logout`);
+    const config  = ConfigToken(token);
     const promise = axios.post(`${BASE_URL}/logout`,{},config);
     return promise;
 }

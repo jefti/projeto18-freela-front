@@ -1,17 +1,48 @@
 import { styled } from "styled-components";
 import PokemonCardComponent from "./PokemonCardComponent";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../contexts/userContext.jsx";
+import apiModels from "../../services/apiModels.js";
+import { useNavigate } from "react-router-dom";
 
 export default function YoursPokemonContainer(){
+    const [lista, setLista] = useState([]);
+    const {user} = useContext(UserContext);
+    const nav = useNavigate();
+
+
+    useEffect(()=>{
+        if(user.token){
+            //console.log(user.token);
+            apiModels.getYoursPokemons(user.token)
+            .then((resp)=>{
+                //console.log(resp.data);
+                setLista(resp.data);
+            })
+            .catch((err)=>{console.log(err.response.data)});
+        }
+    },[]);
+    
+    let elementos = lista.map((item,index)=>(
+        <PokemonCardComponent nome={item.nome} especie={item.especie} id={item.id} foto={item.foto} key={item.id}></PokemonCardComponent>
+    ));
+
+    function handleNavigate(path){
+        nav(path);
+    }
+
     return(
         <PokemonsContainer>
             <TitleCard>
                 <TextoTitulo>Seus Pokemons:</TextoTitulo>
                 <TextoAviso>Ver todos</TextoAviso>
             </TitleCard>
-            <PokemonCardComponent></PokemonCardComponent>
-            <PokemonCardComponent></PokemonCardComponent>
-            <PokemonCardComponent></PokemonCardComponent>
-
+            {
+            ((lista.length > 0)) 
+            ? elementos
+            : user.token && <TextoVazio >Você ainda não tem pokemons, cadastre alguns aqui...</TextoVazio >
+            }
+            {(!user.token) && <TextoVazio onClick={()=>handleNavigate('/')}>Faça o login para poder cadastrar seus pokemons...</TextoVazio>}
         </PokemonsContainer>
     );
 }
@@ -31,6 +62,7 @@ const TitleCard = styled.div`
 
 `
 const TextoTitulo = styled.span`
+    margin-left: 1vw;
     font-size: 1.6vw;
     font-weight: 400;
 `
@@ -43,4 +75,14 @@ const TextoAviso = styled.span`
         text-decoration: underline;
     }
 `
-
+const TextoVazio = styled.div`
+    margin-top: 1vh;
+    margin-left: 1vw;
+    font-size: 1.3vw;
+    color: #be1010;
+    display: flex;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+`

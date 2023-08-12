@@ -1,16 +1,23 @@
 import { styled } from "styled-components";
-export default function PostCard(){
+export default function PostCard({infos}){
+    const {responsavel, nome, especie, descricao, diaria, foto,contato}=infos;
+    let preco = "R$ "+(diaria/100).toFixed(2).toString().replace('.',',');
+    let obj = {DDD:contato.slice(0,2),codigo:contato.slice(2,7),registro:contato.slice(7)};
+
+
+    
+    
     return(
-        <PostBody>
+        <PostBody imageUrl={foto}>
             <div className="ContentBox">
-                <div className="responsavel">#Jefti Meira</div>
-                <div className="pokemon">Dionisio <span>(Leafeon)</span></div>
-                <div className="descricao">Isso aqui é um texto de descrição padrão para o leafeon, não está dizendo nada importante por que o foco é em testar a formatação.Eu vou escrever um texto relativamente grande para poder testar o que acontece com minha div quando inserimos um texto enorme.</div> 
-                <div className="diaria"><span>Diária:</span> R$ 56,00</div>
-                <div className="contato"><span>Contato:</span> (83) 99911-2233</div>  
+                <div className="responsavel">#{responsavel}</div>
+                <div className="pokemon">{nome} <span>{especie}</span></div>
+                <div className="descricao">{descricao}</div> 
+                <div className="diaria"><span>Diária:</span> {preco}</div>
+                <div className="contato"><span>Contato:</span> ({obj.DDD}) {obj.codigo}-{obj.registro} </div>  
            </div>
 
-            <div className="ImgBox"></div>
+            <div className="ImgBox" ></div>
 
         </PostBody>
     );
@@ -39,7 +46,7 @@ const PostBody = styled.div`
 
         transition: width 1s ease-in;
 
-        background-image: url('https://i.pinimg.com/736x/0b/6d/07/0b6d07e962a7f9a6402d0165fe0a08e0.jpg');
+        background-image: url(${props => props.imageUrl});
         background-size: cover;
         background-position: center;
 
