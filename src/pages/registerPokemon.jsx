@@ -1,11 +1,11 @@
 import ScreenWithBars from "../components/screenWithBars/ScreenWithBars.jsx";
 import { DefaultPageContainer } from "../styles/formStyle";
 
-export default function PokemonPage(){
+export default function RegisterPokemonPage(){
     return (
         <ScreenWithBars>
             <DefaultPageContainer>
-                Pokemon Page
+                Register Pokemon
             </DefaultPageContainer>
         </ScreenWithBars>
     )
