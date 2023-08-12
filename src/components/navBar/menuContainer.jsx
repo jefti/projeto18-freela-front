@@ -1,30 +1,46 @@
 import { styled } from "styled-components"
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/userContext.jsx";
+
 
 export default function MenuContainer(){
+    const {user} = useContext(UserContext);
     const nav = useNavigate();
     
-    function handleNavigate(page){
-        nav(page);
+    function handleNavigate(page,auth){
+        if(auth){
+            nav(page);
+        } else{
+            if(user.token){
+                nav(page);
+            } else{
+                alert('Necessário logar')
+            }
+        }
+
     }
     
+
+
     return (
         <LogoContainer>
-           <span onClick={()=> handleNavigate('/home')}>PokeModels</span> 
+           <span onClick={()=> handleNavigate('/home',true)}>PokeModels</span> 
             <MenuOptions>
-                <li onClick={()=> handleNavigate('/home')}>
+                <li onClick={()=> handleNavigate('/home',true)}>
                     <ion-icon name="home"></ion-icon>
                     <p>Home</p>
                 </li>
-                <li>
+                <li onClick={()=> handleNavigate('/search',true)}>
                     <ion-icon name="search"></ion-icon>
                     <p>Pesquisar</p>
                 </li>
-                <li>
+                <li onClick={()=> handleNavigate('/my',false)
+                    }>
                     <ion-icon name="logo-octocat"></ion-icon>
                     <p>Meus Pokemons</p>
                 </li>
-                <li className="Cadastrar">
+                <li className="Cadastrar" onClick={()=> handleNavigate('/register',false)}>
                     <ion-icon name="create"></ion-icon>
                     <p>Cadastrar Pokemons</p>
                 </li>
