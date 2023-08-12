@@ -24,7 +24,7 @@ export default function YoursPokemonContainer(){
     },[]);
     
     let elementos = lista.map((item,index)=>(
-        <PokemonCardComponent nome={item.nome} especie={item.especie} id={item.id} foto={item.foto} key={item.id}></PokemonCardComponent>
+        <PokemonCardComponent nome={item.nome} especie={item.especie} id={item.id} foto={item.foto} key={"yourpokemoncard"+index}></PokemonCardComponent>
     ));
 
     function handleNavigate(path){

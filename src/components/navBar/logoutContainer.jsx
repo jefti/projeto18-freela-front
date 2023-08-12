@@ -11,6 +11,7 @@ export default function LogoutContainer(){
     function handleLogout(){
         apiAuth.logout(user.token)
         .then(()=>{
+            localStorage.removeItem("user");
             setUser({});
             nav('/');
         })

@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 export default function PostCard({infos}){
-    const {responsavel, nome, especie, descricao, diaria, foto,contato}=infos;
+    const {responsavel, nome, especie, descricao, diaria,contato,foto}=infos;
     let preco = "R$ "+(diaria/100).toFixed(2).toString().replace('.',',');
     let obj = {DDD:contato.slice(0,2),codigo:contato.slice(2,7),registro:contato.slice(7)};
 
@@ -8,7 +8,7 @@ export default function PostCard({infos}){
     
     
     return(
-        <PostBody imageUrl={foto}>
+        <PostBody>
             <div className="ContentBox">
                 <div className="responsavel">#{responsavel}</div>
                 <div className="pokemon">{nome} <span>{especie}</span></div>
@@ -17,7 +17,9 @@ export default function PostCard({infos}){
                 <div className="contato"><span>Contato:</span> ({obj.DDD}) {obj.codigo}-{obj.registro} </div>  
            </div>
 
-            <div className="ImgBox" ></div>
+            <ImgBox className="ImgBox">
+                <img src={foto} alt="foto"/>
+            </ImgBox>
 
         </PostBody>
     );
@@ -34,23 +36,6 @@ const PostBody = styled.div`
     background: linear-gradient(to bottom, #ffffff, #f5f5f5);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
-
-    .ImgBox{
-        height: 28vh;
-        width: 30vw;
-        border-radius: 2vh;
-
-        position: absolute;
-        top: min(1vw,1vh);
-        left: min(1vw,1vh);
-
-        transition: width 1s ease-in;
-
-        background-image: url(${props => props.imageUrl});
-        background-size: cover;
-        background-position: center;
-
-    }
 
     .ContentBox{
         height: 25vh;
@@ -195,4 +180,24 @@ const PostBody = styled.div`
     }
 
 `
+    const ImgBox = styled.div`
+        /* background-size: 'cover';
+        background-position: center; */
+        height: 28vh;
+        width: 30vw;
 
+
+        position: absolute;
+        top: min(1vw,1vh);
+        left: min(1vw,1vh);
+
+        transition: width 1s ease-in;
+    img{
+        width: 100%;
+        height: 100%;
+        transition: width 1s ease-in;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 2vh;
+    }
+`

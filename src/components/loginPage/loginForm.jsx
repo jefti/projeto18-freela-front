@@ -21,6 +21,7 @@ export default function LoginForm({changeForm}){
             .then(res=>{
                 setIsLoading(false);
                 setUser(res.data);
+                localStorage.setItem("user",JSON.stringify(res.data));
                 nav("/home");
             })
             .catch(err=>{

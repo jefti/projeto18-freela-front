@@ -7,8 +7,8 @@ import apiModels from "../services/apiModels.js";
 
 export default function HomePage(){
     const [lista, setLista] = useState([]);
-    const elementos = lista.map((el)=>(
-        <PostCard key={'pokemon'+el.id} infos={el}></PostCard>
+    const elementos = lista.map((el,index)=>(
+        <PostCard key={'postcard'+index} infos={el} foto={el.foto}></PostCard>
     ));
     
     
