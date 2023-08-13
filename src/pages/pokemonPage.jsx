@@ -13,7 +13,7 @@ export default function PokemonPage(){
     useEffect(()=>{
         apiModels.getModelById(id)
         .then((resp)=>{
-            console.log(resp.data);
+            //console.log(resp.data);
             setInfos(resp.data);
         })
         .catch((err)=>{

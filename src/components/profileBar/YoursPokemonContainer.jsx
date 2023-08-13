@@ -16,7 +16,7 @@ export default function YoursPokemonContainer(){
             //console.log(user.token);
             apiModels.getYoursPokemons(user.token)
             .then((resp)=>{
-                console.log(resp.data);
+                //console.log(resp.data);
                 setLista(resp.data);
             })
             .catch((err)=>{console.log(err.response.data)});

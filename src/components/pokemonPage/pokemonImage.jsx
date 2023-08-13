@@ -217,12 +217,12 @@ const DetailBox = styled.div`
 
     @media (max-width: 1024px) {    
         width: 74vw;
-        height: 60vh;
+        height: 70vh;
         top: 8vh;
     }
     @media (max-width: 768px){
         width: 94vw;
-        height: 50vh;
+        height: 60vh;
     }
 `
 const InfosContainer = styled.div`

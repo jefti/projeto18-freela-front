@@ -20,6 +20,12 @@ function getModelById(id){
     return promise;
 }
 
-const apiModels = {getYoursPokemons, getHomeList,getModelById};
+function getAny(key){
+    const promise = axios.get(`${BASE_URL}/search/${key}`);
+    return promise;
+}
+
+
+const apiModels = {getYoursPokemons, getHomeList,getModelById,getAny};
 
 export default apiModels;
