@@ -27,22 +27,34 @@ export default function YoursPokemonContainer(){
         <PokemonCardComponent nome={item.nome} especie={item.especie} id={item.idPokemon} foto={item.foto} key={"yourpokemoncard"+index}></PokemonCardComponent>
     ));
 
-    function handleNavigate(path){
-        nav(path);
+    function handleNavigate(page,auth){
+        if(auth){
+            nav(page);
+        } else{
+            if(user.token){
+                nav(page);
+            } else{
+                const shouldRedirect = window.confirm('É necessário estar logado para poder acessar essa página. Você deseja ser redirecionado para a página de login?');
+                if (shouldRedirect) {
+                  nav('/');
+                }
+            }
+        }
+
     }
 
     return(
         <PokemonsContainer>
             <TitleCard>
                 <TextoTitulo>Seus Pokemons:</TextoTitulo>
-                <TextoAviso>Ver todos</TextoAviso>
+                <TextoAviso onClick={()=> handleNavigate('/my',false)}>Ver todos</TextoAviso>
             </TitleCard>
             {
             ((lista.length > 0)) 
             ? elementos
             : user.token && <TextoVazio >Você ainda não tem pokemons, cadastre alguns aqui...</TextoVazio >
             }
-            {(!user.token) && <TextoVazio onClick={()=>handleNavigate('/')}>Faça o login para poder cadastrar seus pokemons...</TextoVazio>}
+            {(!user.token) && <TextoVazio onClick={()=>handleNavigate('/',true)}>Faça o login para poder cadastrar seus pokemons...</TextoVazio>}
         </PokemonsContainer>
     );
 }

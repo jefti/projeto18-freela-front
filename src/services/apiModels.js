@@ -15,6 +15,11 @@ function getHomeList(){
     return promise;
 }
 
-const apiModels = {getYoursPokemons, getHomeList};
+function getModelById(id){
+    const promise = axios.get(`${BASE_URL}/getPokemon/${id}`);
+    return promise;
+}
+
+const apiModels = {getYoursPokemons, getHomeList,getModelById};
 
 export default apiModels;
