@@ -10,6 +10,13 @@ function getYoursPokemons(token){
     return promise;
 }
 
+function  getAllYoursPokemons(token){
+    const config = ConfigToken(token);
+    const promise = axios.get(`${BASE_URL}/allYoursPokemons`,config);
+    return promise;
+}
+
+
 function getHomeList(){
     const promise = axios.get(`${BASE_URL}/homeList`);
     return promise;
@@ -25,7 +32,13 @@ function getAny(key){
     return promise;
 }
 
+function setAvaliable(token,idPokemon,value){
+    const config = ConfigToken(token);
+    const promise = axios.put(`${BASE_URL}/setAvaliable/${idPokemon}/${value}`,{},config);
+    return promise;
+}
 
-const apiModels = {getYoursPokemons, getHomeList,getModelById,getAny};
+
+const apiModels = {getYoursPokemons, getHomeList,getModelById,getAny,getAllYoursPokemons,setAvaliable};
 
 export default apiModels;

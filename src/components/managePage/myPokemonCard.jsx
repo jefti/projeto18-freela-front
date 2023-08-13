@@ -1,26 +1,46 @@
 import { styled } from "styled-components";
-import Switch from 'react-switch';
-import { useState } from "react";
 
-export default function MyPokemonCard(){
-    const [checked, setChecked] = useState([true]);
+import { useContext, useState } from "react";
+import { UserContext } from '../../contexts/userContext';
+import { useNavigate } from "react-router-dom";
+import apiModels from "../../services/apiModels";
 
-    
+export default function MyPokemonCard({infos,reiniciarPagina}){
+    const nav = useNavigate();
+    const {user} = useContext(UserContext);
+
+
+    function handleNavigate(){
+        nav(`/pokemon/${infos.id}`);
+    }
+
+    function handleChangeAvaliable(e) {
+        console.log('entrou');
+        apiModels.setAvaliable(user.token, infos.id,!(infos.avaliable))
+        .then((resp)=>{
+            reiniciarPagina();
+        })
+        .catch((err)=>{console.log(err.response.data)});
+    }
     return (
-        < ContainerCard>
-            <PokemonImage src="https://i.pinimg.com/236x/35/cc/35/35cc357473dcc4c3f367c3f6fc12fbef.jpg"></PokemonImage>
+        < ContainerCard >
+            <PokemonImage src={infos.foto} onClick={handleNavigate}></PokemonImage>
             <PokemonNome>
-                Nome Grande
-                <span>Especie</span>
+                {infos.nome}
+                <span>{infos.especie}</span>
             </PokemonNome>
-            <CheckContainer>
-                < span>Disponível ?</span>
-                <Switch
-                    checked={checked}
-                    onChange={setChecked}
-                    onColor="#be1010" // Cor quando ativado
-                    offColor="#ccc"   // Cor quando desativado
-                />
+            <CheckContainer onClick={handleChangeAvaliable}>
+                <span>Disponível ?</span>
+
+                {infos.avaliable?
+                    (<ion-icon name="checkbox"></ion-icon>)
+                    :(
+                        <p>
+                            <ion-icon name="checkbox-outline"></ion-icon>
+                        </p>
+                    )
+                }
+                
 
             </CheckContainer>
         </ContainerCard>
@@ -128,14 +148,20 @@ const CheckContainer = styled.div`
     border-radius: 10px;
     padding: 10px;
     background-color: white;
+    font-size: 3vh;
+    color: green;
     span{
         font-size: 18px;
         color: #444;
         font-weight: 600;
         margin-bottom: 8px;
     }
+    p{
+        color: #444;
+    }
     @media (max-width: 768px) {
         width: auto;
+        font-size: 2vh;
         span{
         font-size: 10px;
         color: #444;

@@ -198,13 +198,13 @@ const TraineBox = styled.div`
 `
 
 const DetailBox = styled.div`
-        height: 71vh;
+        height: 70vh;
         width: 54vw;
         background-color: ${({ efeito}) => (!(efeito)?'rgba(1,1,1,0)': 'rgba(0, 0, 0, 0.7)')};; 
         transition: background-color 0.3s linear; 
         
         position: absolute;
-        top: 12vh;
+        top: 13vh;
         border-radius: min(2vw, 2vh);
         box-sizing: border-box;
         z-index: 2;
@@ -218,9 +218,10 @@ const DetailBox = styled.div`
     @media (max-width: 1024px) {    
         width: 74vw;
         height: 70vh;
-        top: 8vh;
+        top: 6vh;
     }
     @media (max-width: 768px){
+        top: 7vh;
         width: 94vw;
         height: 60vh;
     }
@@ -230,10 +231,10 @@ const InfosContainer = styled.div`
 
 `
 const InfoBox = styled.div`
-    height: 10vh;
+    height: 9vh;
     border-radius: min(1vh,1vw);
     color: ${({cor})=> cor||"transparent"};
-    font-size: 6vh;
+    font-size: 1.7vw;
     font-weight: 1000;
     display: flex;
     align-items: center;
@@ -241,6 +242,22 @@ const InfoBox = styled.div`
     border: ${({cor})=> cor||"transparent"} solid 1.5vh;
     border-radius: 5px;
     margin-bottom: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 1024px) {    
+        width: 35vw;
+        height: auto;
+        font-size: 3.5vw;
+        span{
+            font-size:2vw; 
+        }
+    }    
+
+    @media (max-width: 768px) {
+        width: 45vw;
+        height: auto;
+    }   
 `
 
 const ContactBox = styled.div`

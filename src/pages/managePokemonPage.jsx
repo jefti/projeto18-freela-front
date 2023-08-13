@@ -1,18 +1,43 @@
 import { styled } from "styled-components";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import ScreenWithBars from "../components/screenWithBars/ScreenWithBars.jsx";
 import { DefaultPageContainer } from "../styles/formStyle";
 import { UserContext } from "../contexts/userContext.jsx";
 import { useNavigate } from "react-router-dom";
 import MyPokemonCard from "../components/managePage/myPokemonCard.jsx";
 import RegisterCard from "../components/managePage/registerCard.jsx";
+import apiModels from "../services/apiModels.js";
 
 export default function ManagePokemonPage(){
     const {user} = useContext(UserContext);
     const nav = useNavigate();
+    const [listaPokemon,setListaPokemon] = useState([]);
+
+    const [refresh, setRefresh] = useState(true);
+    const reiniciarPagina = function (){
+        setRefresh(!refresh);
+    };
+    
+    const cardLista = listaPokemon.map((el)=>
+        <MyPokemonCard infos={el} reiniciarPagina={reiniciarPagina}></MyPokemonCard>
+    );
+
     useEffect(()=>{
         if(!user.token) nav('/');
-    },[])
+        else{
+            apiModels.getAllYoursPokemons(user.token)
+            .then((resp)=>{
+                console.log(resp.data);
+                setListaPokemon(resp.data);
+            })
+            .catch((err)=>console.log(err));
+        }
+    },[refresh])
+
+
+
+
+
 
     return (
         <ScreenWithBars>
@@ -21,11 +46,7 @@ export default function ManagePokemonPage(){
             ?<Titulo>Seus Pokemons:</Titulo>
             : "Não está logado"}
             <PokemonsContainer>
-                <MyPokemonCard></MyPokemonCard>
-                <MyPokemonCard></MyPokemonCard>
-                <MyPokemonCard></MyPokemonCard>
-                <MyPokemonCard></MyPokemonCard>
-                <MyPokemonCard></MyPokemonCard>
+                {cardLista}
                 <RegisterCard></RegisterCard>
             </PokemonsContainer>
             </DefaultPageContainer>
