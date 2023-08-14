@@ -3,6 +3,7 @@ import ScreenWithBars from "../components/screenWithBars/ScreenWithBars.jsx";
 import { DefaultPageContainer } from "../styles/formStyle";
 import { UserContext } from "../contexts/userContext.jsx";
 import { useNavigate } from "react-router-dom";
+import RegisterPokemonForm from "../components/registerPokemon/registerPokemonForm.jsx";
 
 export default function RegisterPokemonPage(){
     const {user} = useContext(UserContext);
@@ -15,7 +16,7 @@ export default function RegisterPokemonPage(){
     return (
         <ScreenWithBars>
             <DefaultPageContainer>
-                {user.token?"nome :" + user.nome: "Não está logado"}
+                <RegisterPokemonForm></RegisterPokemonForm>
             </DefaultPageContainer>
         </ScreenWithBars>
     )

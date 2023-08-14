@@ -15,7 +15,6 @@ export default function MyPokemonCard({infos,reiniciarPagina}){
     }
 
     function handleChangeAvaliable(e) {
-        console.log('entrou');
         apiModels.setAvaliable(user.token, infos.id,!(infos.avaliable))
         .then((resp)=>{
             reiniciarPagina();

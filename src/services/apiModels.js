@@ -38,7 +38,13 @@ function setAvaliable(token,idPokemon,value){
     return promise;
 }
 
+function postModel(body,token){
+    const config = ConfigToken(token);
+    const promise = axios.post(`${BASE_URL}/pokemon`,body,config);
+    return promise;
+}
 
-const apiModels = {getYoursPokemons, getHomeList,getModelById,getAny,getAllYoursPokemons,setAvaliable};
+
+const apiModels = {getYoursPokemons, getHomeList,getModelById,getAny,getAllYoursPokemons,setAvaliable,postModel};
 
 export default apiModels;

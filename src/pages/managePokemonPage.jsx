@@ -27,7 +27,7 @@ export default function ManagePokemonPage(){
         else{
             apiModels.getAllYoursPokemons(user.token)
             .then((resp)=>{
-                console.log(resp.data);
+                // console.log(resp.data);
                 setListaPokemon(resp.data);
             })
             .catch((err)=>console.log(err));
