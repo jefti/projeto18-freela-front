@@ -3,15 +3,15 @@ import { styled } from "styled-components";
 export default function PostCard({infos}){
     const nav = useNavigate();
     
-    const {responsavel, nome, especie, descricao, diaria,contato,foto,idPokemon}=infos;
+    const {nome, especie, descricao, diaria,foto,id, user}=infos;
     let preco = "R$ "+(diaria/100).toFixed(2).toString().replace('.',',');
-    let obj = {DDD:contato.slice(0,2),codigo:contato.slice(2,7),registro:contato.slice(7)};
+    let obj = {DDD:user.phone.slice(0,2),codigo:user.phone.slice(2,7),registro:user.phone.slice(7)};
 
     
     return(
-        <PostBody onClick={()=>nav(`/pokemon/${idPokemon}`)}>
+        <PostBody onClick={()=>nav(`/pokemon/${id}`)}>
             <div className="ContentBox">
-                <div className="responsavel">#{responsavel}</div>
+                <div className="responsavel">#{user.nome}</div>
                 <div className="pokemon">{nome} <span>{especie}</span></div>
                 <div className="descricao">{descricao}</div> 
                 <div className="diaria"><span>Diária:</span> {preco}</div>
@@ -182,8 +182,6 @@ const PostBody = styled.div`
 
 `
     const ImgBox = styled.div`
-        /* background-size: 'cover';
-        background-position: center; */
         height: 28vh;
         width: 30vw;
 

@@ -3,17 +3,15 @@ import { styled } from "styled-components"
 
 export default function PokemonImage({infos}){
     const[showDetail, setShowDetail] = useState(false);
-
-    const {foto,fotoUsuario}=infos;
-
-    let obj = {DDD:infos.telefone.slice(0,2),codigo:infos.telefone.slice(2,7),registro:infos.telefone.slice(7)};
     console.log(infos);
+    const {foto,user, disponivel}=infos;
+    let obj = {DDD:user.phone.slice(0,2),codigo:user.phone.slice(2,7),registro:user.phone.slice(7)};
     return (
         <Teste>
             <TraineBox>
-                <img src={fotoUsuario} ></img>
-                <span>{infos.responsavel}</span>
-                <p>({infos.email})</p>
+                <img src={user.foto} ></img>
+                <span>{user.nome}</span>
+                <p>({user.email})</p>
             </TraineBox>
             <BlurredImagem  
                 src={foto} 
@@ -30,15 +28,15 @@ export default function PokemonImage({infos}){
                 {infos.descricao}
             </DetailBox>
             <InfosContainer>
-                {!(infos.avaliable) && <InfoBox cor="#be1010">Indisponível</InfoBox>}
+                {!(disponivel) && <InfoBox cor="#be1010">Indisponível</InfoBox>}
                 
-                {(infos.avaliable) && (
+                {(disponivel) && (
                     <ContactBox>
                         R${(infos.diaria/100).toFixed(2).toString().replace('.',',')}
                         <span>por dia</span>
                     </ContactBox>
                 )}
-                {(infos.avaliable) && (
+                {(disponivel) && (
                     <ContactBox>
                             <ion-icon name="call"></ion-icon>
                         ({obj.DDD}) {obj.codigo}-{obj.registro}
@@ -144,7 +142,6 @@ const NomeBox = styled.div`
 const TraineBox = styled.div`
     width: 94%;
     height: 10vh;
-    /* background-color: yellow; */
     position: relative;
 
     margin-top: min(1vw,1vh);
@@ -271,7 +268,6 @@ const ContactBox = styled.div`
     box-sizing: border-box;
     margin: 0  1vw 0 1vw;   
     font-size: 1.7vw;
-    /* font-size: min(3.2vh,3vw); */
     display: flex;
     align-items: center;
     justify-content: center;

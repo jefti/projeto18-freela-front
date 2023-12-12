@@ -32,7 +32,6 @@ export default function RegisterForm({changeForm}){
                 else setErros(err.response.data); 
                 setIsLoading(false);
             });
-        //changeForm();
     }
     
     return (

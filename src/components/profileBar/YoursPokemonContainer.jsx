@@ -13,10 +13,8 @@ export default function YoursPokemonContainer(){
 
     useEffect(()=>{
         if(user.token){
-            //console.log(user.token);
             apiModels.getYoursPokemons(user.token)
             .then((resp)=>{
-                //console.log(resp.data);
                 setLista(resp.data);
             })
             .catch((err)=>{console.log(err.response.data)});
@@ -24,7 +22,7 @@ export default function YoursPokemonContainer(){
     },[]);
     
     let elementos = lista.map((item,index)=>(
-        <PokemonCardComponent nome={item.nome} especie={item.especie} id={item.idPokemon} foto={item.foto} key={"yourpokemoncard"+index}></PokemonCardComponent>
+        <PokemonCardComponent nome={item.nome} especie={item.especie} id={item.id} foto={item.foto} key={"yourpokemoncard"+index}></PokemonCardComponent>
     ));
 
     function handleNavigate(page,auth){
@@ -52,7 +50,7 @@ export default function YoursPokemonContainer(){
             {
             ((lista.length > 0)) 
             ? elementos
-            : user.token && <TextoVazio >Você ainda não tem pokemons, cadastre alguns aqui...</TextoVazio >
+            : user.token && <TextoVazio onClick={()=> handleNavigate('/register',false)}>Você ainda não tem pokemons, cadastre alguns aqui...</TextoVazio >
             }
             {(!user.token) && <TextoVazio onClick={()=>handleNavigate('/',true)}>Faça o login para poder cadastrar seus pokemons...</TextoVazio>}
         </PokemonsContainer>

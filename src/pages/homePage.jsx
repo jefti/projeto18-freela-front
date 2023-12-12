@@ -8,17 +8,16 @@ import apiModels from "../services/apiModels.js";
 export default function HomePage(){
     const [lista, setLista] = useState([]);
     const elementos = lista.map((el,index)=>(
-        <PostCard key={'postcard'+index} infos={el} foto={el.foto}></PostCard>
+        <PostCard key={'postcard'+index} infos={el} foto={el.foto}/>
     ));
     
     
     useEffect(()=>{
         apiModels.getHomeList().then( (resp)=>{
-            //console.log(resp.data);
             setLista(resp.data);
         }
         ).catch( (err)=>{
-            console.log(err.response.data);
+            console.log(err);
         }
         );
     },[])

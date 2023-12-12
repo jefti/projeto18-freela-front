@@ -16,7 +16,6 @@ export default function SearchPage(){
   };
   
   const pesquisar = function (){
-    console.log('entrou');
     apiModels.getAny(searchTerm)
     .then((resp)=>{
       console.log(resp.data);

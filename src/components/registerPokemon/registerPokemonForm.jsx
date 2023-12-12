@@ -22,8 +22,7 @@ function RegisterPokemonForm() {
     const valor = (Number(diaria).toFixed(2))*100;
     apiModels.postModel({nome,descricao,diaria:valor,foto,comentarioFoto,especie},user.token)
     .then((resp)=>{
-      console.log(resp.data[0].id);
-      nav(`/pokemon/${resp.data[0].id}`);
+      nav(`/pokemon/${resp.data.id}`);
       
     })
     .catch((err)=>{

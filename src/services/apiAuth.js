@@ -10,7 +10,6 @@ function login(body){
 }
 
 function cadastro(body){
-    console.log(BASE_URL);
     const promise= axios.post(`${BASE_URL}/registro`,body);
     return promise;
 }

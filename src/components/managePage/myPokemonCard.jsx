@@ -8,14 +8,14 @@ import apiModels from "../../services/apiModels";
 export default function MyPokemonCard({infos,reiniciarPagina}){
     const nav = useNavigate();
     const {user} = useContext(UserContext);
-
+    console.log(infos);
 
     function handleNavigate(){
         nav(`/pokemon/${infos.id}`);
     }
 
     function handleChangeAvaliable(e) {
-        apiModels.setAvaliable(user.token, infos.id,!(infos.avaliable))
+        apiModels.setAvaliable(user.token, infos.id,!(infos.disponivel))
         .then((resp)=>{
             reiniciarPagina();
         })
@@ -31,7 +31,7 @@ export default function MyPokemonCard({infos,reiniciarPagina}){
             <CheckContainer onClick={handleChangeAvaliable}>
                 <span>Disponível ?</span>
 
-                {infos.avaliable?
+                {infos.disponivel?
                     (<ion-icon name="checkbox"></ion-icon>)
                     :(
                         <p>

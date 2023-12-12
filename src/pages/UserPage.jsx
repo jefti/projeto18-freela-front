@@ -17,11 +17,6 @@ export default function UserPage(){
     return (
         <ScreenWithBars>
             <DefaultPageContainer>
-                {/* <img src={user.foto} alt="Foto de perfil"/>
-                Nome:{user.nome}
-                Email:{user.email}
-                Telefone: {user.phone}
-                CPF: {user.cpf} */}
                 <PageUserContainer>
                     <FotoContainer>
                         <img src={user.foto} alt="foto de perfil" />
