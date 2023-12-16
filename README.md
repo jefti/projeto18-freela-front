@@ -124,7 +124,25 @@ No site/aplicação o usuario pode acessar se fazer um cadastro, porém isso ir�
 </details>
 
 ### /pokemon/:id :
+  <img src="src/assets/app_screenshots/model_desktop.png">
   Página de informação de cada modelo individualmente, dependendo do id presente no link da página. É nessa página que o usuario pode ver as informções de contato do modelo e sua descrição.
+
+<details>
+<summary> <strong>Versão mobile:</strong>  </summary>
+<img src="src/assets/app_screenshots/model_mobile.png">
+</details>
+
+<details>
+<summary> <strong>Quando indisponível:</strong>  </summary>
+  <details>
+    <summary> <strong>Desktop:</strong>  </summary>
+    <img src="src/assets/app_screenshots/model_desktop2.png">
+  </details>
+  <details>
+    <summary> <strong>Mobile:</strong>  </summary>
+    <img src="src/assets/app_screenshots/model_mobile2.png">
+  </details>
+</details>
 
 ### /* (página de erro):
   Página padrão de erro exibida todas as vezes que um cliente tenta acessa uma rota que não foi implementada, ela redireciona ou para o home ou para a página de login.
