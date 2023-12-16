@@ -6,6 +6,9 @@
   
   **[🚀 Link do Deploy](https://projeto18-freela-front-lilac.vercel.app/)**
 
+  
+  **[🐋 Link do Docker](https://hub.docker.com/repository/docker/jeftimeira/myimagename/general)**
+
 
 ## 📖 Índice
 1. Visão Geral
@@ -14,15 +17,16 @@
 4. Rotas
 5. Como instalar ?
 6. Como testar ?
+7. Docker
 
 ## 📋 Visão Geral 
-
+No site/aplicação o usuario pode acessar se fazer um cadastro, porém isso irá bloquear algumas funcionalidades. O principal intuito da página é exibir todos os modelos disponíveis no banco, informando o preço cobrado para participar de eventos/publicidade e o contato. Caso o usuario seja cadastrado, ele pode também adicionar os seus modelos na página. O usuario tem a opção de tornar o seu modelo indisponível, retirando ele da página principal e tornando privado suas informações de contato.
 
 ## 🛠️ Tecnologias
 <table>
   <tr>
     <td align="center">
-      <a href="[https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html](https://pt.vitejs.dev/guide/)">
+      <a href="https://pt.vitejs.dev/guide/">
         <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--bsGEKH1C--/c_imagga_scale,f_auto,fl_progressive,h_1080,q_auto,w_1080/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/cm21q6iefpnmz3railfs.png" width="100px;" alt="Ícone Vite"/><br>
         <sub>
           <b>React Vite</b>
@@ -30,10 +34,26 @@
       </a>
     </td>
     <td align="center">
-      <a href="[https://nodejs.org/en/about](https://axios-http.com/docs/intro)">
-        <img src="https://user-images.githubusercontent.com/8939680/57233882-20344080-6fe5-11e9-9086-d20a955bed59.png" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+      <a href="https://styled-components.com/">
+        <img src="https://www.styled-components.com/atom.png" width="100px;" alt="Styled Components"/><br>
+        <sub>
+          <b>Styled Components</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://axios-http.com/docs/intro">
+        <img src="https://user-images.githubusercontent.com/8939680/57233882-20344080-6fe5-11e9-9086-d20a955bed59.png" width="100px;" alt="Logo Axios"/><br>
         <sub>
           <b>Axios.Js</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://docs.docker.com/guides/get-started/">
+        <img src="https://ertan-toker.de/wp-content/uploads/2018/05/docker-container-logo-thegem-blog-default.png" width="100px;" height="100px" alt="Logo Docker"/><br>
+        <sub>
+          <b>Docker</b>
         </sub>
       </a>
     </td>
@@ -78,7 +98,7 @@ npm i
 ```
 4. Logo após, configure as variavés de ambiente criando os arquivos .env e .env.test. Para essa etapa funcionar corretamente é necessário subistituir as informações presentes por aquelas referentes a sua configuração.
 ```javascript
-VITE_API_URL = Variável responsável por deifnir qual o link da API que o site irá acessa quando for buscar informações.
+VITE_API_URL = #Variável responsável por definir qual o link da API que o site irá acessa quando for buscar informações.
 ```
 Pronto, agora o código já está instalado e pronto para ser executado.
 
@@ -90,3 +110,32 @@ npm run dev
 ```
 
 Com a aplicação rodando em sua máquina, acesse o link informado para poder testar as funcionalidades da aplicação.
+
+## 🐋 Docker
+
+O Docker é uma plataforma de código aberto que automatiza a implantação, a escalabilidade e a gestão de aplicações em contêineres. Contêineres são unidades leves e portáveis que incluem tudo o que é necessário para executar uma aplicação, incluindo o código, as bibliotecas e as dependências. Eles isolam os processos da aplicação e garantem que ela seja executada de maneira consistente em diferentes ambientes.
+
+Para usar o Docker para executar um aplicativo do Docker Hub, você pode seguir estes passos: 
+### 1. Instale o Docker
+  Pode encontrar mais informações de como instalar o Docker em sua máquina através do site oficial.
+
+### 2. Baixe a imagem do aplicativo
+  No terminal roda o seguinte comando.
+```javascript
+docker pull jeftimeira/myimagename:latest
+```
+### 3. Execute o contêiner do aplicativo
+  Ainda no terminal execute o comando abaixo.
+```javascript
+docker run -d --name meu_app -p 8080:80 jeftimeira/myimagename:latest
+```
+
+Agora a aplicação estará rodando na porta 8080 da sua máquina e pode ser acessada pelo link: http://localhost:8080. É importante que a porta 8080 da sua máquina esteja livre e o backend esteja rodando na porta 3000 para rodar localmente o arquivo dockerizado. Caso a porta esteja ocupada no momento só subistituir o valor 8080 nos comandos anteriores pelo valor de alguma porta livre.
+
+### Para remover o conteiner após utilizar
+  Para remover a aplicação acesse novamente o terminal e execute os seguintes comandos em sequência.
+```javascript
+docker stop meu_app
+docker rm meu_app
+```
+
